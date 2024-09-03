@@ -12,11 +12,11 @@ _fetch_sources() {
   mkdir -p ~/.nano/
   cd ~/.nano/
 
-  wget -O "/tmp/nanorc.zip" "https://github.com/galenguyer/nano-syntax-highlighting/archive/${br}.zip"
-  unzip -o "/tmp/nanorc.zip"
+  wget -O "nanorc.zip" "https://github.com/galenguyer/nano-syntax-highlighting/archive/${br}.zip"
+  unzip -o "nanorc.zip"
   mv "nano-syntax-highlighting-${br}"/* ./
   rm -rf "nano-syntax-highlighting-${br}"
-  rm -f "/tmp/nanorc.zip"
+  rm -f "nanorc.zip"
 }
 
 _update_nanorc() {
@@ -37,7 +37,7 @@ _version_str_to_num() {
   if [ -z "$1" ]; then
     return
   fi
-  printf "$1" | awk -F . '{printf("%d%02d%02d", $1, $2, $3)}'
+  printf "%s" "$1" | awk -F . '{printf("%d%02d%02d", $1, $2, $3)}'
 }
 
 _find_suitable_branch() {
